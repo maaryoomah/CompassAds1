@@ -1,0 +1,28 @@
+﻿
+
+@{
+    ViewBag.Title = "Upload";
+}
+<h2>Upload</h2>
+@using (Html.BeginForm("Upload", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    <table>
+        <tr>
+            <td>Select File : </td>
+            <td>
+               <input type="file" id="FileUpload" name="FileUpload"/>
+               
+            
+           <!-- Html.ValidationMessage("CustomError")     Html.TextBoxFor(Model => Model.File, new { type = "file" })  -->    
+            </td>
+            <td>
+                <input type="submit" value="Upload" />
+            </td>
+        </tr>
+    </table>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

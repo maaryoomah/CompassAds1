@@ -1,0 +1,40 @@
+@media screen and(max-width:767px){
+.main-sidebbar{
+
+	display: none;
+	
+	}
+	
+	.has-mini-sidebbar.main-sidebbar{
+
+	display:block;
+	
+	}
+.content-wrapper,.main-footer{
+	
+	
+	margin-left:0px;
+	
+	
+}
+.content-wrapper{
+	padding-top:50px;
+	
+}	
+	
+	.main-header .logo {
+	width:50px;
+	
+}	
+	.main-header .logo .logo-mini{
+	
+	display:block;
+}
+
+.main-header .logo .logo-lg{
+	
+	display:none;
+}
+
+
+}

@@ -1,0 +1,305 @@
+﻿
+@model CompassAds1.Encapculation.RegisterRegisterLoginViewModel
+
+@{
+    ViewBag.Title = "Confirm Email";
+
+
+    Layout = "~/Views/Shared/_LayoutConfirm.cshtml";
+
+    var userId = ViewBag.userId;
+    var Email = ViewBag.Email;
+    var Name = ViewBag.Name;
+    var UserName = ViewBag.UserName;
+
+
+    TempData["Data1"] = Name;
+
+    TempData["Data2"] = UserName;
+
+    //    Thank you for confirming your email. Please c @Html.ActionLink("Click here to Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
+
+}
+
+<h2>@ViewBag.Title.</h2>
+<div>
+
+   
+
+    Thank you for confirming your email. Please <a href="#" data-toggle="modal" data-target="#resetpwd"> Click here to reset your password</a>
+
+
+
+    <!-- Modal SignIN -->
+    <div class="modal fade in" id="resetpwd" role="dialog" style="     margin-top: 70px ;display: none;   ">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content" style=" direction: rtl;opacity: 0.95;">
+
+                <div class="modal-body">
+
+@using (Html.BeginForm("ResetPasswordM", "Account", FormMethod.Post, new { role = "form", id = "add-form" }))
+{
+                    <div class="hiddenid1" hidden>@UserName</div>
+                    <div class="hiddenid1" hidden >@userId</div>
+                    <div class="hiddenid2" hidden>@Email</div>
+                    <div class="hiddenid3" hidden>@Name</div>
+
+
+                    <div class="form-group">
+                        <label for="Email" class="col-sm-3 control-label">Email</label>
+
+                        <div class="col-sm-5">
+                            <input type="text" id="Email" name="Email" class="form-control email" value='@Email' disabled="disabled">
+
+                           
+                            <div style="font-size:11px ;">
+                                @Html.ValidationMessageFor(m => m.rg.Email, "", new { @class = "text-danger emailer", id = "error" })
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.rg.Password, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.PasswordFor(m => m.rg.Password, new { @class = "form-control" })
+                            <div style="font-size:11px ;">
+                                @Html.ValidationMessageFor(m => m.rg.Password, "", new { @class = "text-danger", id = "error" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.rg.ConfirmPassword, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.PasswordFor(m => m.rg.ConfirmPassword, new { @class = "form-control" })
+                            <div style="font-size:11px ;">
+                                @Html.ValidationMessageFor(m => m.rg.ConfirmPassword, "", new { @class = "text-danger", id = "error" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" id="reset" class="btn site-btn signUp-btn" tabindex="6"><span class="fa fa-user"></span>  reset</button>
+
+
+
+}
+
+
+
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <!-- Modal SignIN END-->
+
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        var data = $('.hiddenid2').html(); // data is the email
+
+        $('.hiddenid2').prop("value",data); // form member has a value prop but another tags dont have
+
+
+       
+
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+    /*
+
+
+    هون ما الو داعي هاد الاسلوب ب السبمت...رح اعمل اسلوب الطبيعي الكبس ع السبمت واسلوب الفورم كولكشن بالسيرفر لحتى اتحكم بالمعلومات اللي عاوز ادخلها ع ال داتا بيس والللي م بدي ادخلها
+
+
+
+     $(document).ready(function () {
+
+        var flag1 = 2; var flag2 = 2; var flag3 = 2; var flag4 = 2; var flag5 = 2; var flag6 = 2; var flag7 = 2; var flag8 = 2; var flag9 = 2;
+        var flag10 = 2; var flag11 = 2; var flag12 = 2; var flag13 = 2; var flag14 = 2;
+        $('.next-btn-N').click(function () { ChSubmit(); });
+
+        function ChSubmit() {
+
+
+    var isOK = check();
+    if (isOK == 1) {
+        alert("isOK");
+
+        document.getElementById('add-form').submit();
+    }
+    else {
+
+        if (flag1 == 1) { $('.text-danger.error1').html("هذا الحقل مطلوب"); }
+        if (flag2 == 1) { $('.text-danger.error2').html("هذا الحقل مطلوب"); }
+        if (flag3 == 1) { $('.text-danger.error3').html("هذا الحقل مطلوب"); }
+        if (flag4 == 1) { $('.text-danger.error4').html("هذا الحقل مطلوب"); }
+        if (flag5 == 1) { $('.text-danger.error5').html("هذا الحقل مطلوب"); }
+        if (flag6 == 1) { $('.text-danger.error6').html("هذا الحقل مطلوب"); }
+        if (flag7 == 1) { $('.text-danger.error7').html("هذا الحقل مطلوب"); }
+        if (flag8 == 1) { $('.text-danger.error8').html("هذا الحقل مطلوب"); }
+        if (flag9 == 1) { $('.text-danger.error9').html("هذا الحقل مطلوب"); }
+        if (flag10 == 1) { $('.text-danger.error10').html("هذا الحقل مطلوب");}
+        if (flag11== 1) { $('.text-danger.error11').html("هذا الحقل مطلوب"); }
+        if (flag12 == 1) { $('.text-danger.error12').html("هذا الحقل مطلوب");}
+        if (flag13 == 1) { $('.text-danger.error13').html("هذا الحقل مطلوب");}
+        if (flag14 == 1) { $('.text-danger.error14').html("هذا الحقل مطلوب");}
+
+
+
+    }
+
+
+    }
+        var flag = 2;
+
+        function check() {
+            //lname thname secname fname lnameEN thnameEN secnameEN fnameEN email work nat mobile_num mobile_num Lphone
+            //alert("in");
+            var i = 0;
+
+                // alert(i);
+            var a = $('#fname').prop('value');
+            if (a == "") {
+                flag1 = 1;
+            } else { i++; flag1 = 0;}
+               // alert(a);
+
+                var b = $('#secname').prop('value');
+                if (b == "") {
+                    flag2 = 1;
+                } else { i++; flag2 = 0; }
+               //alert(b);
+
+
+                var c = $('#thname').prop('value');
+                if (c == "") {
+                    flag3 = 1;
+                } else { i++; flag3 = 0;}
+               // alert(c);
+
+                var d = $('#lname').prop('value');
+                if (d == "") {
+                    flag4 = 1;
+                } else { i++; flag4 = 0; }
+               // alert(d);
+
+
+                var e = $('#fnameEN').prop('value');
+                if (e == "") {
+                    flag5 = 1;
+                } else { i++; flag5 = 0;}
+                //alert(e);
+
+                var f = $('#secnameEN').prop('value');
+                if (f == "") {
+                    flag6 = 1;
+                } else { i++; flag6 = 0; }
+               // alert(f);
+
+                var g = $('#thnameEN').prop('value');
+                if (g == "") {
+                    flag7 = 1;
+                } else { i++; flag7 = 0;}
+               // alert(g);
+
+                var k = $('#lnameEN').prop('value');
+                if (k == "") {
+                    flag8 = 1;
+                } else { i++; flag8 = 0; }
+               // alert(k);
+
+                var l = $('#email').prop('value');
+                if (l == "") {
+                    flag9 = 1;
+                } else { i++; flag9 = 0; }
+               // alert(l);
+
+                var m = $('#work').prop('value');
+                if (m == "") { flag10 = 1; }
+                else { i++; flag10 = 0;}
+               // alert(m);
+
+                    var n = $('#nat').prop('value');
+                    if (n== "اختر الجنسية" ) {
+                        flag11 = 1; alert("null")
+                    } else { i++; flag11 = 0; }
+                   //  alert(n);
+
+                var o = $('#mobile_num').prop('value');
+                if (o == "") {
+                    flag12 = 1;
+                } else { i++; flag12 = 0; }
+              //  alert(o);
+
+                var p = $('#Lphone').prop('value');
+                if (p == "") {
+                    flag13 = 1;
+                } else { i++; flag13 = 0; }
+               // alert(p);
+
+                var s = $('#city').prop('value');
+                if (s =="اختر" ) {
+                    flag14 = 1; alert("null");
+                } else { i++; flag14 = 0;  }
+                alert(s);
+
+
+
+                if (i == 14) {
+                     alert(i);
+                    flag = 1;
+                }
+                else { flag = 0; alert(i); }
+
+                return flag;
+            }
+
+
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     */ //comments like this must be inside scripting not outside.....inside html
+
+
+</script>
+
+
+
+}

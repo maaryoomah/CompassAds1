@@ -1,0 +1,1 @@
+﻿ALTER TABLE Adv ADD CONSTRAINT [FK_AspNetUsers_Adv] FOREIGN KEY ([UserId]) REFERENCES [dbo].[AspNetUsers]  ([Id])   ON DELETE CASCADE

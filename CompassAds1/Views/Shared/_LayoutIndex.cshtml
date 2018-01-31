@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <!--to be responssive to mobile-->
+    <meta name="viewport" content="width=device-width,initial scale=1" />
+    <title>Home</title>
+    <link href="~/spcontent/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/spcontent/Content/style.css" rel="stylesheet" />
+   
+</head>
+<body>
+    <!--Navbar-->
+    <nav class="navbar navbar-default navbar-fixed-top">
+
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#" class="navbar-brand">
+                    <img src="~/spcontent/images/logo.PNG" class="logo-size" />
+                </a>
+            </div>
+
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-left">
+                    <li>
+                        <a href="#">
+
+                            <i class="glyphicon glyphicon-home"></i> Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+
+                            <i class="glyphicon glyphicon-flag"></i> How Does Website Work ?
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+
+                            <i class="glyphicon glyphicon-info-sign"></i> About Us
+
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+
+                            <i class="glyphicon glyphicon-envelope"></i> Contact Us
+
+                        </a>
+                    </li>
+                </ul>
+
+                <!--LOgin view and rendring-->
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#">
+
+                            <i class="glyphicon glyphicon-log-in"></i>   Login
+
+                        </a>
+                    </li>
+                    <li>
+
+
+                </ul>
+
+
+
+
+            </div>
+        </div>
+    </nav>
+
+    <!--body here -->
+    <div class="container" position="relative">
+        <div class="row">
+            @RenderBody()
+        </div>
+    </div>
+
+    <!--Footer-->
+    <footer class=" navbar navbar-fixed-bottom myfooter">
+        <div class="container">
+            <div class="row">
+                <!--<div class="col-md-4">
+                     <h3> </h3><p></p>
+                 </div>
+                 <div class="col-md-4">
+                     <h3> </h3><p></p>
+                 </div>-->
+                <div class="subfooter">
+                    © 2017 <strong> CompassAds | Version 1.0</strong>.
+                    Developed by
+                    <a href="http://www.al-manaragroup.com/" target="_blank">Al-ManaraGroup</a>
+                </div>
+
+
+            </div>
+        </div>
+    </footer>
+
+    <script src="~/spcontent/Scripts/jquery-3.2.0.min.js"></script>
+    <script src="~/spcontent/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/jquery.validate-vsdoc.js"></script>
+    
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>

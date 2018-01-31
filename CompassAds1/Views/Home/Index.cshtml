@@ -1,0 +1,378 @@
+﻿
+@model CompassAds1.Encapculation.RegisterRegisterLoginViewModel
+
+
+@{
+    //<span data-value="PS" class="flag-14 ps"></span>
+
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+
+}
+
+
+
+<div class="container">
+    <div class="col-md-6">
+        <br><br><br>
+        <div class="left">
+            <h2>Advertiser</h2><br>
+            <img src="~/spcontent/images/add.PNG" class=".adv-size" alt="Ginger" class="left" height="200" width="200" /><br><br>
+            <p>
+                <b>
+                    Would you like to Encourge your bussiness? Would you like to increase Your Sales?Would you like to be Most Important Companies in your Field?<br>Would you like to get a Full rated Cutomer Impressions?
+                </b>
+            </p>
+
+            <div class="row">
+                <button type="button" class="btn btn-primary pull-left" data-toggle="modal" data-target="#SignUP" data-dismiss="modal" tabindex="5"><span class="fa fa-user"></span>  SignUp As An Advertiser</button>
+
+
+
+                <!--  <a href="#"
+                     class="btn btn-primary pull-left">
+                      <i class="entypo-plus-circled"></i>
+                      SignUp As An Advertiser
+                  </a> -->
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <br><br><br>
+        <div class="right">
+            <h2>Publisher </h2><br>
+            <img src="~/spcontent/images/pub.PNG" alt="Ginger" class="left" height="200" width="200" /><br><br>
+            <p>
+                <b>
+                    Do you want to be a rich man ? Would you like to Encrouge Your Profits?  would you like to increase your followers ? All you can do  signup here in website ,Regards
+                </b>
+            </p>
+
+
+            <div class="row">
+                <a href="#" onclick=""
+                   class="btn btn-primary pull-left">
+                    <i class="entypo-plus-circled"></i>
+                    SignUp As A Publisher
+                </a>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+</div>
+
+
+
+
+<!-- Modal SignUp -->
+<div class="modal fade in" id="SignUP" style="display: none;">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            <h4 class="modal-title">Compass ADS</h4>
+                        </div>
+
+                        <div class="modal-body" style="height:500px; overflow:auto;">
+                            <script src="assets/js/neon-custom-ajax.js"></script>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="panel panel-primary" data-collapsed="0">
+                                        <div class="panel-heading">
+                                            <div class="panel-title">
+                                                <i class="entypo-plus-circled"></i>
+                                                SignUp As An Advertiser
+                                            </div>
+                                        </div>
+                                        <div class="panel-body">
+
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal form-groups-bordered validate", id = "signINForm", role = "form", enctype = "multipart/form-data", method = "post", novalidate = "novalidate" }))
+{
+                                                <div class="form-group">
+                                                    <label for="Name" class="col-sm-3 control-label">Name</label>
+
+                                                    <div class="col-sm-5">
+                                                        @Html.TextBoxFor(m => m.rg.Name, new { @class = "form-control", id = "Name", name = "name" })
+                                                        <div style="font-size:11px ;">
+                                                            @Html.ValidationMessageFor(m => m.rg.Name, "", new { @class = "text-danger", id = "error" })
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+
+                                                <div class="form-group">
+                                                    <label for="Email" class="col-sm-3 control-label">Email</label>
+
+                                                    <div class="col-sm-5">
+                                                      
+                                                        @Html.TextBoxFor(m => m.rg.Email, new { @class = "form-control email", id = "Email", name = "Email" })
+                                                        <div style="font-size:11px ;">
+                                                            @Html.ValidationMessageFor(m => m.rg.Email, "", new { @class = "text-danger emailer", id = "error" })
+                                                        </div>
+                                                    
+                                                    
+                                                    </div>
+                                                </div>
+
+
+
+
+                                                <div class="form-group">
+                                                    <label for="Mobile" class="col-sm-3 control-label">Mobile</label>
+
+                                                    <div class="col-sm-5">
+                                                      
+                                                        @Html.TextBoxFor(m => m.rg.Mobile, new { @class = "form-control Mobile ", id = "Mobile", name = "Mobile" })
+                                                        <div style="font-size:11px ;">
+                                                            @Html.ValidationMessageFor(m => m.rg.Mobile, "", new { @class = "text-danger", id = "error" })
+                                                        </div>
+                                                    
+                                                    
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="Country" class="col-sm-3 control-label">Country</label>
+
+                                                    <div class="col-sm-5">
+
+                                                        @Html.DropDownList("countries", null, "Select your country", htmlAttributes: new { @class = "form-control", id = "Country", name = "Country"})
+
+
+                                                <div style="font-size:11px ;">
+                                                    @Html.ValidationMessageFor(m => m.rg.Country, "", new { @class = "text-danger", id = "error" })
+                                                </div>
+                                                    
+                                                    
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="DateOfBirthday" class="col-sm-3 control-label">DateOfBirthday</label>
+
+                                                    <div class="col-sm-5">
+                                                      
+                                                        @Html.TextBoxFor(m => m.rg.DateOfBirthday, new { @class = "form-control", id = "DateOfBirthday", name = "DateOfBirthday" })
+                                                        <div style="font-size:11px ;">
+                                                            @Html.ValidationMessageFor(m => m.rg.DateOfBirthday, "", new { @class = "text-danger", id = "error" })
+                                                        </div>
+                                                    
+                                                    </div>
+                                                </div>
+
+
+
+
+                                                <div class="form-group">
+                                                    <div class="col-sm-offset-3 col-sm-5">
+                                                        <button type="submit" id="siup" class="btn btn-info">SignUp As An Advertiser </button>
+                                                    </div>
+                                                </div>
+}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script type="text/javascript">
+
+      $(document).ready(function () {
+
+
+//----------------------------------------------------------------------------------
+
+
+          $('#Country').change(function () {
+
+              var selectedcountry = $(this).val();
+              if (selectedcountry != "Select your country") {
+                 // alert(selectedcountry);
+                  $.ajax({
+                      url: '~/../../Home/SelectCode',
+                      type: 'POST',
+                      data: { 'id': selectedcountry },
+                      dataType: 'text',
+                      success: function (data) {
+                         // alert(data);
+                          $('.form-control.Mobile').prop('value',data);
+
+                      }
+                      ,
+                      error: function (data) {
+                          alert("un expected error");
+                      }
+                  });
+
+
+
+              }
+          });
+
+            
+
+
+
+//--------------------------------------------------------------------------------
+
+
+
+
+            $('#siup').prop('disabled', true);
+            // alert("bhdsk");
+            $('.form-control.email').change(function () {
+                var stremail = $('.form-control.email').val();
+                
+//-----------------------------------------------------------------------------------------------
+              /*  $.post('~/../../Home/Emailalready/' + stremail, function (data) {
+                    alert(data);
+                    if (data == 1) {
+                        // var element = document.getElementsByClassName('merror');
+                        //element.innerText = "رقم الهوية مستخدم";
+                        $('.text-danger.emailer').html("this email is not avalible");
+                        // $('#merror').prop('hidden','none');
+
+                        $('#siup').prop('disabled', true);
+                        //f = 0;
+
+                    } if (data == 0) {
+
+                        //var eelement = document.getElementsByClassName('merror');
+                        $('.text-danger.emailer').html("avalible");
+
+                        // $('#merror').prop('hidden', 'none');
+                        //f = 1;
+
+
+                    }
+                    /* if (data == 2) {
+                         //var eelement = document.getElementsByClassName('merror');
+                         alert(data);
+                         $('.text-danger.error').html("");
+                         // $('#merror').prop('hidden', 'none');
+                         //f = 1;
+
+
+                     }*/
+
+
+        //       });
+
+//------------------------------------------------------------------------------------------------------------------
+
+
+
+
+                $.ajax({
+                    url: '~/../../Home/Emailalready/' ,
+                    type: 'POST',
+                    data: { 'id': stremail},
+                    dataType: 'text',
+                    success: function (data) {
+                        
+                        if (data == 1) {
+                          //  alert(data);
+                            $('.text-danger.emailer').html("this email is not avalible");
+
+                            $('#siup').prop('disabled', true);
+
+                        } if (data == 0) {
+                           // alert(data);
+                            $('.text-danger.emailer').html("avalible");
+
+
+
+                        }
+                    }
+                    ,
+                    error: function (data)
+                    {
+                        alert("un expected error");
+                    }
+                });
+
+//-----------------------------------------------------------------------------------------------------
+
+            });
+
+        
+        
+            setInterval(check, 100);
+            function check() {
+                $('#siup').prop('disabled', true);
+                var i = 0;
+                var val = $('.text-danger.emailer').html();
+                //var eeelement = document.getElementsByClassName('merror');
+                // var val = eeelement.innerText;
+                // var val = $('.error').text();
+                if (val == "avalible") {
+                    // alert(val);
+                    var name = $('#Name').prop('value');
+                    if (name == "") {
+                    } else { i++; }
+                    //  alert(fn);
+
+                    var mobile = $('#Mobile').prop('value');
+                    if (mobile == "") {
+                    } else { i++; }
+                    // alert(ln);
+
+
+                    var email = $('.form-control.email').prop('value');
+                    if (email == "") {
+                    } else { i++; }
+                    //alert(id);
+
+                    var country = $('#Country').prop('value');
+                    if (country == "") {
+                    } else { i++; }
+
+                    // alert(pwd);
+                    var date = $('#DateOfBirthday').prop('value');
+                    if (date == "") {
+                    } else { i++; }
+
+                    //alert(cpwd);
+
+                    if (i == 5) {
+                        // alert(i);
+                        $('#siup').prop('disabled', false);
+                    }
+                }
+            }
+
+        });
+
+
+
+
+
+
+    </script>
+
+
+
+}
